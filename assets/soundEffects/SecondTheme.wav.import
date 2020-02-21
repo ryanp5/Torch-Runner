@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SecondTheme.wav-1683e918d1e939ee1a32a759e933c173.sample"
+
+[deps]
+
+source_file="res://assets/soundEffects/SecondTheme.wav"
+dest_files=[ "res://.import/SecondTheme.wav-1683e918d1e939ee1a32a759e933c173.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=true
+compress/mode=0

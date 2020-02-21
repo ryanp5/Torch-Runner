@@ -1,0 +1,14 @@
+[gd_resource type="ParticlesMaterial" format=2]
+
+[resource]
+render_priority = -1
+emission_shape = 1
+emission_sphere_radius = 5.0
+flag_disable_z = true
+spread = 43.1
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 9.0
+angular_velocity = 6.81031e-043
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.5

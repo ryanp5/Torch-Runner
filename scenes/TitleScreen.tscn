@@ -1,0 +1,99 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/fonts/TitleScreenFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/UIScripts/StartGameBtn.cs" type="Script" id=2]
+[ext_resource path="res://scenes/QuitButton.cs" type="Script" id=3]
+[ext_resource path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/EndLevelTorch/EndLevelFireTorch.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
+font_data = ExtResource( 4 )
+
+[node name="TitleScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="BUtton" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="BUtton"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -228.0
+margin_right = 228.0
+margin_bottom = 78.0
+mouse_filter = 1
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
+custom_constants/shadow_offset_y = 5
+text = "Torch Runner"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BUtton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -250.0
+margin_top = -100.0
+margin_right = 250.0
+margin_bottom = 100.0
+
+[node name="StartGame" type="Button" parent="BUtton/VBoxContainer"]
+margin_right = 500.0
+margin_bottom = 83.0
+mouse_filter = 1
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_hover = Color( 0.447059, 0.384314, 0.384314, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+shortcut_in_tooltip = false
+action_mode = 0
+text = "Start Game"
+flat = true
+script = ExtResource( 2 )
+
+[node name="QuitButton" type="Button" parent="BUtton/VBoxContainer"]
+margin_top = 87.0
+margin_right = 500.0
+margin_bottom = 170.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_hover = Color( 0.447059, 0.384314, 0.384314, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+action_mode = 0
+text = "Quit"
+flat = true
+script = ExtResource( 3 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BUtton"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -400.0
+margin_top = -200.0
+margin_right = 400.0
+custom_fonts/mono_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 3 )
+text = "Controls:
+Move Left: A | Left Joystick Left | Left Arrow Key
+Move Right: D | Left Joystick Right | Right Arrow Key
+Jump: W | PS4 X/Xbox A | Up Arrow Key"
+scroll_active = false
+
+[node name="TextureRect" type="TextureRect" parent="BUtton"]
+margin_right = 64.0
+margin_bottom = 64.0
+rect_scale = Vector2( 5, 5 )
+texture = ExtResource( 5 )
+
+[node name="TextureRect2" type="TextureRect" parent="BUtton"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -320.0
+margin_right = -320.0
+margin_bottom = 64.0
+rect_scale = Vector2( 5, 5 )
+texture = ExtResource( 5 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0

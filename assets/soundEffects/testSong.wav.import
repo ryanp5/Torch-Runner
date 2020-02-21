@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/testSong.wav-eeb4a97be5717668e949e8d7bbbcaacb.sample"
+
+[deps]
+
+source_file="res://assets/soundEffects/testSong.wav"
+dest_files=[ "res://.import/testSong.wav-eeb4a97be5717668e949e8d7bbbcaacb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

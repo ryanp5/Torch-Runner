@@ -1,0 +1,9 @@
+[gd_resource type="DynamicFont" load_steps=2 format=2]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://assets/fonts/VCR_OSD_MONO_1.001.ttf"
+
+[resource]
+size = 64
+extra_spacing_bottom = 20
+font_data = SubResource( 1 )

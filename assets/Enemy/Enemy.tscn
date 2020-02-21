@@ -1,0 +1,88 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://assets/Enemy/EnemyMovement.cs" type="Script" id=1]
+[ext_resource path="res://assets/Enemy/EnemyWalk_0000.png" type="Texture" id=2]
+[ext_resource path="res://assets/Enemy/EnemyWalk_0001.png" type="Texture" id=3]
+[ext_resource path="res://assets/Enemy/EnemyWalk_0002.png" type="Texture" id=4]
+[ext_resource path="res://assets/Enemy/EnemyDie_0008.png" type="Texture" id=5]
+[ext_resource path="res://assets/Enemy/EnemyDie_0009.png" type="Texture" id=6]
+[ext_resource path="res://assets/Enemy/EnemyDie_0010.png" type="Texture" id=7]
+[ext_resource path="res://assets/Enemy/EnemyDie_0011.png" type="Texture" id=8]
+[ext_resource path="res://assets/Enemy/EnemyDie_0012.png" type="Texture" id=9]
+[ext_resource path="res://assets/Enemy/EnemyDie_0013.png" type="Texture" id=10]
+[ext_resource path="res://assets/Enemy/EnemyDie_0014.png" type="Texture" id=11]
+[ext_resource path="res://assets/Enemy/EnemyDie_0015.png" type="Texture" id=12]
+[ext_resource path="res://assets/Enemy/EnemyDie_0016.png" type="Texture" id=13]
+[ext_resource path="res://assets/Enemy/EnemyRun_0008.png" type="Texture" id=14]
+[ext_resource path="res://assets/Enemy/EnemyRun_0009.png" type="Texture" id=15]
+[ext_resource path="res://assets/Enemy/EnemyRun_0010.png" type="Texture" id=16]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 9.67027, 9.52459 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "walk",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": false,
+"name": "die",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "chase",
+"speed": 12.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 34.0052, 28.7426 )
+
+[node name="Enemy" type="Node2D"]
+position = Vector2( 239.465, 374.674 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+collision_layer = 4
+collision_mask = 11
+script = ExtResource( 1 )
+EnemySightdist = 100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+scale = Vector2( 3, 3.24 )
+shape = SubResource( 1 )
+
+[node name="RayCastDownRight" type="RayCast2D" parent="KinematicBody2D/CollisionShape2D"]
+position = Vector2( 10, 9.25926 )
+scale = Vector2( 0.333333, 0.308642 )
+enabled = true
+cast_to = Vector2( 0, 10 )
+collision_mask = 2
+
+[node name="RayCastDownLeft" type="RayCast2D" parent="KinematicBody2D/CollisionShape2D"]
+position = Vector2( -10, 9.25926 )
+scale = Vector2( 0.333333, 0.308642 )
+enabled = true
+cast_to = Vector2( 0, 10 )
+collision_mask = 2
+
+[node name="RayCastFoward" type="RayCast2D" parent="KinematicBody2D/CollisionShape2D"]
+enabled = true
+cast_to = Vector2( 40, 0 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D"]
+scale = Vector2( 2, 2 )
+frames = SubResource( 2 )
+animation = "die"
+frame = 8
+playing = true
+
+[node name="Area2D" type="Area2D" parent="KinematicBody2D"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/Area2D"]
+position = Vector2( 0, -3.70636 )
+shape = SubResource( 3 )
+[connection signal="body_entered" from="KinematicBody2D/Area2D" to="KinematicBody2D" method="_on_Area2D_body_entered"]

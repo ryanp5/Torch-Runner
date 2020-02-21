@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BBBEA6B0-AAA9-4FB4-B602-731DCEE2A45C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <OutputPath>.mono\temp\bin\$(Configuration)</OutputPath>
+    <RootNamespace>SecondChances</RootNamespace>
+    <AssemblyName>Second-Chances</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <BaseIntermediateOutputPath>.mono\temp\obj</BaseIntermediateOutputPath>
+    <IntermediateOutputPath>$(BaseIntermediateOutputPath)\$(Configuration)</IntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>portable</DebugType>
+    <Optimize>true</Optimize>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Tools|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>DEBUG;TOOLS;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GodotSharp">
+      <HintPath>$(ProjectDir)\.mono\assemblies\GodotSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="GodotSharpEditor" Condition=" '$(Configuration)' == 'Tools' ">
+      <HintPath>$(ProjectDir)\.mono\assemblies\GodotSharpEditor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="assets\Enemy\EnemyMovement.cs" />
+    <Compile Include="assets\Player\PlayerstateMachine.cs" />
+    <Compile Include="Global.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="scenes\Label.cs" />
+    <Compile Include="scenes\QuitButton.cs" />
+    <Compile Include="src\CameraScripts\MiniGameCamera.cs" />
+    <Compile Include="src\EndLevel.cs" />
+    <Compile Include="src\EnemyScripts\KinematicBody2D.cs" />
+    <Compile Include="src\GameController.cs" />
+    <Compile Include="src\HeartScript.cs" />
+    <Compile Include="src\PlayerScripts\PlayerMiniMovement.cs" />
+    <Compile Include="src\PlayerScripts\PlayerMovement.cs" />
+    <Compile Include="src\SafeRespawns.cs" />
+    <Compile Include="src\SoundScripts\MiniGameSoundEffects.cs" />
+    <Compile Include="src\SoundScripts\SoundEffects.cs" />
+    <Compile Include="src\StateMachine.cs" />
+    <Compile Include="src\TilemapScripts\KillonCollision.cs" />
+    <Compile Include="src\TilemapScripts\MiniGameTileGenerator.cs" />
+    <Compile Include="src\TilemapScripts\TileMover.cs" />
+    <Compile Include="src\UIScripts\EndGameBtn.cs" />
+    <Compile Include="src\UIScripts\HeartUI.cs" />
+    <Compile Include="src\UIScripts\StartGameBtn.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>
